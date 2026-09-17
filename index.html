@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ronin0s | Mycology Operating System</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <div class="brand-wrap">
+          <span class="brand-icon">🍄</span>
+          <div>
+            <div class="brand-row">
+              <h1>ronin0s</h1>
+              <span class="pill">v2.0 Architecture</span>
+            </div>
+            <p>Ronin Mushrooms Co. • Mycology Digital Infrastructure Suite</p>
+          </div>
+        </div>
+        <div class="status-line">
+          <span class="live-dot"></span>
+          <span>Local AI Platform Ready</span>
+        </div>
+      </div>
+    </header>
+
+    <nav class="nav-tabs">
+      <div class="container tab-row">
+        <button class="nav-btn active" data-target="overview">📋 Executive Architecture</button>
+        <button class="nav-btn" data-target="prompts">🤖 AI Prompt Hub</button>
+        <button class="nav-btn" data-target="recipes">📖 15 Master Recipes</button>
+        <button class="nav-btn" data-target="cncalc">🧪 C:N & Hydration</button>
+        <button class="nav-btn" data-target="telemetry">🌡️ Spatial Telemetry</button>
+        <button class="nav-btn" data-target="vision">🔍 Edge Vision AI</button>
+        <button class="nav-btn" data-target="genetics">🧬 Genetic Senescence</button>
+        <button class="nav-btn" data-target="planner">⚙️ Batch Planner</button>
+      </div>
+    </nav>
+
+    <main class="container main-shell">
+      <section class="tab-panel active" id="overview">
+        <div class="panel intro-panel">
+          <h2>🚀 ronin0s Architecture & Feature Additions</h2>
+          <p>
+            <strong>ronin0s</strong> is the digital operating backbone for a commercial mycology operation. This local application combines recipe intelligence, climate telemetry, cultivation forecasting, lineage tracking, and crop imaging into one decision-support dashboard for modern mushroom production.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-head">
+              <span class="feature-icon green">🤖</span>
+              <span class="tag">Hub #1</span>
+            </div>
+            <h3>AI Prompt Hub</h3>
+            <p>Structured prompt blocks for automating frontend and backend development tasks.</p>
+            <button class="link-button" data-tab="prompts">Open Prompt Hub →</button>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-head">
+              <span class="feature-icon amber">📖</span>
+              <span class="tag">Hub #2</span>
+            </div>
+            <h3>15 Master Recipes</h3>
+            <p>Ingredient guidance for 5 agar formulations, 5 grain strategies, and 5 substrate mixes.</p>
+            <button class="link-button" data-tab="recipes">View Recipe Library →</button>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-head">
+              <span class="feature-icon blue">🧪</span>
+              <span class="tag">Feature #1</span>
+            </div>
+            <h3>C:N & Hydration Engine</h3>
+            <p>Real-time carbon and nitrogen calculations with contamination-risk warnings.</p>
+            <button class="link-button" data-tab="cncalc">Run Calculator →</button>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-head">
+              <span class="feature-icon purple">🌡️</span>
+              <span class="tag">Feature #2</span>
+            </div>
+            <h3>Spatial Telemetry</h3>
+            <p>Micro-climate simulation across rack levels with relay control logic.</p>
+            <button class="link-button" data-tab="telemetry">View Telemetry →</button>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-head">
+              <span class="feature-icon rose">🔍</span>
+              <span class="tag">Feature #3</span>
+            </div>
+            <h3>YOLO-style Scanner</h3>
+            <p>Pathology detection overlays to highlight contamination risk and response SOPs.</p>
+            <button class="link-button" data-tab="vision">Test Vision AI →</button>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-head">
+              <span class="feature-icon teal">⚙️</span>
+              <span class="tag">Feature #4</span>
+            </div>
+            <h3>Batch Planner</h3>
+            <p>Reverse-engineered yield planning to map substrate, spawn, and sterilization needs.</p>
+            <button class="link-button" data-tab="planner">Run Batch Planner →</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="prompts">
+        <div class="panel">
+          <h2>🤖 AI Prompt & Specification Hub</h2>
+          <p>
+            Use these structured instructions to guide your AI assistant while building the mycology platform in a local development environment.
+          </p>
+        </div>
+
+        <div class="prompt-stack">
+          <article class="prompt-card">
+            <div class="prompt-head">
+              <div>
+                <h3>Prompt #1: App Architecture Blueprint</h3>
+                <p>Generates the project backbone, schema definitions, and offline-first data model.</p>
+              </div>
+              <button class="copy-button" data-target="prompt-1">Copy Prompt #1</button>
+            </div>
+            <pre id="prompt-1">SYSTEM CONTEXT: You are building a local-first mycology operations platform called ronin0s.
+
+GOAL:
+Create a production-ready web app for cultivation planning and monitoring.
+
+REQUIREMENTS:
+- Use plain HTML, CSS, and JavaScript with no external package dependencies.
+- Save all records locally in browser storage.
+- Add tabbed workflow panels for overview, recipes, calculations, telemetry, vision, genetics, and planning.
+- Include data models for recipe, batch, lineage, scan, and telemetry records.
+- Implement responsive UI and accessible controls.
+- Support offline operation and local-only storage.
+- Define the recipe schema and calculation logic for C:N, hydration, and contamination risk.
+
+OUTPUT:
+Return a complete front-end implementation with working interactive modules.</pre>
+          </article>
+
+          <article class="prompt-card">
+            <div class="prompt-head">
+              <div>
+                <h3>Prompt #2: Dynamic Substrate Engine</h3>
+                <p>Calculates carbon, nitrogen, and hydration using wood-based nutrient inputs.</p>
+              </div>
+              <button class="copy-button" data-target="prompt-2">Copy Prompt #2</button>
+            </div>
+            <pre id="prompt-2">SYSTEM CONTEXT: You are an expert mycology biochemical engineer and frontend developer.
+
+TASK:
+Build a JavaScript module for calculating substrate Carbon-to-Nitrogen ratios and field capacity.
+
+INPUTS:
+- Sawdust: 50% carbon, 0.1% nitrogen
+- Soy hulls: 45% carbon, 4.5% nitrogen
+- Wheat bran: 46% carbon, 2.5% nitrogen
+- Coco coir: 48% carbon, 0.4% nitrogen
+
+LOGIC:
+1. CarbonTotal = sum(weight * carbon_percentage)
+2. NitrogenTotal = sum(weight * nitrogen_percentage)
+3. CNRatio = CarbonTotal / NitrogenTotal
+4. Target water = totalDryWeight * 1.5
+
+ALERTS:
+- C:N &lt; 25: high contamination risk
+- 25 to 45: ideal growth range
+- C:N &gt; 45: high carbon, lower biological efficiency
+
+OUTPUT:
+Return a reactive UI with chart-driven visualization and risk messaging.</pre>
+          </article>
+
+          <article class="prompt-card">
+            <div class="prompt-head">
+              <div>
+                <h3>Prompt #3: Telemetry & Relay Logic</h3>
+                <p>Creates a live climate dashboard with co2 and humidity monitoring logic.</p>
+              </div>
+              <button class="copy-button" data-target="prompt-3">Copy Prompt #3</button>
+            </div>
+            <pre id="prompt-3">SYSTEM CONTEXT: You are an IoT systems engineer developing climate controls for mushroom fruiting rooms.
+
+TASK:
+Design a telemetry dashboard showing relative humidity and CO2 fluctuation data throughout the day.
+
+SPECIFICATIONS:
+- Accept JSON payloads with temp_c, rh_percent, co2_ppm, and rack_level.
+- Plot dual metrics with separate axes.
+- Highlight stratification between lower and upper rack zones.
+- If floor CO2 exceeds 900 ppm, trigger relay action: { relay: "exhaust_fan", pwm_duty: 85 }.
+
+OUTPUT:
+Deliver a monitoring UI and rule-based relay simulation.</pre>
+          </article>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="recipes">
+        <div class="panel">
+          <h2>📖 15 Master Mycology Formulation Recipes</h2>
+          <p>Filter the matrix to compare agar media, grain preps, and fruiting substrates.</p>
+          <div class="recipe-filter-row">
+            <button class="filter-btn active" data-filter="all">All 15 Recipes</button>
+            <button class="filter-btn" data-filter="agar">5 Agar Media</button>
+            <button class="filter-btn" data-filter="grain">5 Grain Preps</button>
+            <button class="filter-btn" data-filter="substrate">5 Substrates</button>
+          </div>
+        </div>
+        <div class="recipe-grid" id="recipe-grid"></div>
+      </section>
+
+      <section class="tab-panel" id="cncalc">
+        <div class="panel">
+          <h2>🧪 C:N Ratio & Hydration Engine</h2>
+          <p>Adjust the substrate mix to evaluate contamination risk, water demand, and elemental balance.</p>
+        </div>
+
+        <div class="two-col-layout">
+          <div class="panel form-panel">
+            <div class="slider-group">
+              <label for="input-wood">Hardwood Sawdust <span id="val-wood">1.00 kg</span></label>
+              <input id="input-wood" type="range" min="0" max="5" step="0.1" value="1.0" />
+            </div>
+            <div class="slider-group">
+              <label for="input-soy">Soy Hulls <span id="val-soy">1.00 kg</span></label>
+              <input id="input-soy" type="range" min="0" max="5" step="0.1" value="1.0" />
+            </div>
+            <div class="slider-group">
+              <label for="input-bran">Wheat Bran <span id="val-bran">0.00 kg</span></label>
+              <input id="input-bran" type="range" min="0" max="5" step="0.1" value="0.0" />
+            </div>
+            <div class="slider-group">
+              <label for="input-coir">Coco Coir <span id="val-coir">0.00 kg</span></label>
+              <input id="input-coir" type="range" min="0" max="5" step="0.1" value="0.0" />
+            </div>
+            <div class="slider-group">
+              <label for="input-gypsum">Gypsum Buffer <span id="val-gypsum">0.05 kg</span></label>
+              <input id="input-gypsum" type="range" min="0" max="0.5" step="0.01" value="0.05" />
+            </div>
+
+            <div class="summary-box">
+              <div><span>Total Dry Weight</span><strong id="out-dry-weight">2.05 kg</strong></div>
+              <div><span>Field Capacity (60%)</span><strong id="out-water-needed">3.08 L</strong></div>
+              <div><span>C:N Ratio</span><strong id="out-cn-ratio">20.7 : 1</strong></div>
+            </div>
+            <button id="reset-calc" class="secondary-btn">Reset Defaults</button>
+          </div>
+
+          <div class="panel chart-panel">
+            <h3>Substrate Elemental Breakdown</h3>
+            <div class="canvas-wrap medium">
+              <canvas id="cn-chart" width="420" height="260"></canvas>
+            </div>
+            <div id="risk-alert-box" class="risk-box warning">
+              <div class="risk-title"><span id="risk-icon">⚠️</span> <span id="risk-title">High Nitrogen Contamination Alert</span></div>
+              <p id="risk-desc">C:N ratio is below 25:1. Consider extra sterilization or a higher-carbon blend.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="telemetry">
+        <div class="panel">
+          <h2>🌡️ Multi-Zone Micro-Climate Mapping & PID Loop Telemetry</h2>
+          <p>Track humidity and CO2 drift across rack levels and simulate automatic exhaust responses.</p>
+        </div>
+
+        <div class="two-col-layout telemetry-layout">
+          <div class="panel chart-panel">
+            <div class="panel-header">
+              <h3>Fruiting Chamber A — 24hr Sensor Stream</h3>
+              <div class="scenario-buttons">
+                <button class="scenario-btn active" data-scenario="optimal">Optimal Cycle</button>
+                <button class="scenario-btn" data-scenario="co2-spike">CO2 Exhaust Fail</button>
+                <button class="scenario-btn" data-scenario="rh-drop">RH Humidity Drop</button>
+              </div>
+            </div>
+            <div class="canvas-wrap large">
+              <canvas id="telemetry-chart" width="680" height="280"></canvas>
+            </div>
+            <div class="metric-row">
+              <div><span>Avg RH%</span><strong id="stat-rh">92.4%</strong></div>
+              <div><span>Avg CO2</span><strong id="stat-co2">650 ppm</strong></div>
+              <div><span>Avg Temp</span><strong id="stat-temp">18.2 °C</strong></div>
+            </div>
+          </div>
+
+          <div class="panel stacked-panel">
+            <h3>Vertical Rack Heatmap</h3>
+            <div class="rack-box top">
+              <div>
+                <strong>Top Rack (Level 3)</strong>
+                <small>High evaporation zone</small>
+              </div>
+              <div class="rack-stats"><span>88% RH</span><span>540 ppm</span></div>
+            </div>
+            <div class="rack-box mid">
+              <div>
+                <strong>Mid Rack (Level 2)</strong>
+                <small>Optimal pinning sweet spot</small>
+              </div>
+              <div class="rack-stats"><span>94% RH</span><span>620 ppm</span></div>
+            </div>
+            <div class="rack-box floor">
+              <div>
+                <strong>Floor Rack (Level 1)</strong>
+                <small>CO2 pooling risk</small>
+              </div>
+              <div class="rack-stats"><span>91% RH</span><span>1,280 ppm</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="vision">
+        <div class="panel">
+          <h2>🔍 Edge Vision AI</h2>
+          <p>Simulated scanner view with contaminant boxes and corrective operating prompts.</p>
+        </div>
+
+        <div class="vision-layout">
+          <div class="panel vision-panel">
+            <canvas id="vision-canvas" width="520" height="360"></canvas>
+          </div>
+          <div class="panel vision-data">
+            <h3>Scanner Result</h3>
+            <div class="scan-summary">
+              <div><span>Detected</span><strong>Trichoderma-like growth</strong></div>
+              <div><span>Risk</span><strong>High</strong></div>
+              <div><span>Confidence</span><strong>86%</strong></div>
+            </div>
+            <ul class="scan-actions">
+              <li>Quarantine affected fruiting block immediately.</li>
+              <li>Inspect RH, airflow, and substrate moisture variance.</li>
+              <li>Review harvest records for recent contamination pressure.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="genetics">
+        <div class="panel">
+          <h2>🧬 Genetic Senescence Tracking</h2>
+          <p>Monitor strain vitality and passage health to reduce performance drift.</p>
+        </div>
+
+        <div class="two-col-layout genetics-layout">
+          <div class="panel chart-panel">
+            <h3>Lineage Vitality</h3>
+            <div class="canvas-wrap medium">
+              <canvas id="senescence-chart" width="560" height="250"></canvas>
+            </div>
+          </div>
+          <div class="panel lineage-panel">
+            <h3>Parent → Child Lineage Map</h3>
+            <div class="lineage-tree">
+              <div class="node root">A1<br /><small>Original</small></div>
+              <div class="branch"></div>
+              <div class="node child">A2<br /><small>Passage 3</small></div>
+              <div class="branch"></div>
+              <div class="node child">A3<br /><small>Passage 5</small></div>
+            </div>
+            <div class="genetics-alert">Senescence trend is increasing after Passage 5. Schedule a fresh tissue transfer.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="planner">
+        <div class="panel">
+          <h2>⚙️ Commercial Production Batch Planner</h2>
+          <p>Estimate the material need for a target harvest volume and reverse-calculate planning metrics.</p>
+        </div>
+
+        <div class="two-col-layout planner-layout">
+          <div class="panel form-panel">
+            <div class="planner-grid">
+              <label>Target Yield (kg) <input id="yield-kg" type="number" min="1" value="75" /></label>
+              <label>BE% Efficiency <input id="be-percent" type="number" min="20" max="200" value="90" /></label>
+              <label>Substrate Wet Weight Fraction <input id="substrate-wet" type="number" min="0.3" max="1.5" step="0.05" value="0.7" /></label>
+              <label>Spawn Ratio <input id="spawn-ratio" type="number" min="0.05" max="0.35" step="0.01" value="0.12" /></label>
+            </div>
+            <button id="recalc-planner" class="primary-btn">Recalculate Batch</button>
+          </div>
+
+          <div class="panel planner-output">
+            <h3>Projected Resource Plan</h3>
+            <div class="batch-stat"><span>Substrate Needed</span><strong id="out-substrate">240 kg wet</strong></div>
+            <div class="batch-stat"><span>Spawn Needed</span><strong id="out-spawn">29 kg</strong></div>
+            <div class="batch-stat"><span>LC Volume</span><strong id="out-lc">500 mL</strong></div>
+            <div class="batch-stat"><span>Agar Plates</span><strong id="out-plates">5 plates</strong></div>
+            <div class="batch-stat"><span>Sterilizer Runs</span><strong id="out-runs">3 runs</strong></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container footer-inner">
+        <p>ronin0s • Advanced Mycelial Cultivation Platform</p>
+        <p>Built for local operation and workflow planning.</p>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
