@@ -1,0 +1,8 @@
+bin/
+obj/
+.dotnet/
+qa/
+ui-checks-output/
+release/
+Data/
+*.zip

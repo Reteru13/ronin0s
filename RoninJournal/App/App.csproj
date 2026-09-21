@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>WinExe</OutputType><TargetFramework>net10.0-windows</TargetFramework><UseWPF>true</UseWPF><AssemblyName>RoninJournal</AssemblyName></PropertyGroup><ItemGroup><ProjectReference Include="../Core/Core.csproj" /><Resource Include="Assets/ronin.png" /><Resource Include="Assets/Recipes/**/*.png" /></ItemGroup></Project>

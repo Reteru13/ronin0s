@@ -1,0 +1,32 @@
+{
+  "version": "1.1.0",
+  "kind": "brand-character-illustrations",
+  "caption": "Ronin character illustration",
+  "note": "AI-assisted illustrated variants of the supplied original ronin character, not photographs. Original logo palette and character are the reference. Category artwork is shared by its five draft entries.",
+  "assets": [
+    {
+      "category": "agar",
+      "file": "agar/cover.png",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Ronin character holding a stack of agar plates, with cyan and violet accents.",
+      "sha256": "D2F8A8E262E2FBA71864BE75D83C0B26158916DEA09D9579F7AC0215F07B8E66"
+    },
+    {
+      "category": "grain",
+      "file": "grain/cover.png",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Ronin character holding a jar of grain, with cyan and violet accents.",
+      "sha256": "753B012FC979089284DFF215DA7E6A03D9D0313A9A9ED967E96238B45BAE79BE"
+    },
+    {
+      "category": "substrate",
+      "file": "substrate/cover.png",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Ronin character holding a tray of wood fibers and straw, with cyan and violet accents.",
+      "sha256": "12ACEB0000869D15B1FC11085EF15281FA262B1F98C215C8FE6D589B72C0E3A6"
+    }
+  ]
+}
