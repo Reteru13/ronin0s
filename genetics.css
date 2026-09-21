@@ -1,0 +1,14 @@
+.genetics-entry-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+#genetics label { display: block; margin-top: 18px; font-size: 14px; font-weight: bold; }
+#genetics input, #genetics select, #genetics textarea { width: 100%; padding: 11px; margin: 7px 0; border: 1px solid #a8a29e; border-radius: 8px; font: inherit; background: white; color: var(--ink); }
+#genetics textarea { min-height: 150px; resize: vertical; }
+#genetics .field-help { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+#genetics button { padding: 11px 16px; border: 1px solid #a8a29e; border-radius: 8px; cursor: pointer; background: white; color: var(--ink); }
+#genetics button:hover, #genetics button:focus-visible { border-color: var(--emerald); background: var(--emerald-soft); }
+#genetics button.primary { background: var(--emerald); color: white; }
+.observation-card { background: #f5f8f4; border: 1px solid #dbe8dc; border-radius: 12px; padding: 18px; margin: 14px 0; overflow-wrap: anywhere; }
+.observation-card h4 { margin: 0 0 8px; font-size: 18px; }
+.observation-notes { white-space: pre-wrap; line-height: 1.6; }
+#genetics-status { color: #166534; margin: 14px 0; }
+#genetics-status.error { color: #9f1239; }
+@media(max-width:800px) { .genetics-entry-layout { grid-template-columns: minmax(0, 1fr); } }

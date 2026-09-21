@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ronin0s | Mycology Operating System</title>
     <link rel="stylesheet" href="styles.css" />
+      <link rel="stylesheet" href="family-tree.css">
+      <link rel="stylesheet" href="genetics.css">
   </head>
   <body>
     <header class="topbar">
@@ -32,9 +34,9 @@
         <button class="nav-btn" data-target="prompts">🤖 AI Prompt Hub</button>
         <button class="nav-btn" data-target="recipes">📖 15 Master Recipes</button>
         <button class="nav-btn" data-target="cncalc">🧪 C:N & Hydration</button>
-        <button class="nav-btn" data-target="telemetry">🌡️ Spatial Telemetry</button>
+        <button class="nav-btn" data-target="family-tree">🧬 Family Tree</button>
         <button class="nav-btn" data-target="vision">🔍 Edge Vision AI</button>
-        <button class="nav-btn" data-target="genetics">🧬 Genetic Senescence</button>
+        <button class="nav-btn" data-target="genetics">🧬 Genetics</button>
         <button class="nav-btn" data-target="planner">⚙️ Batch Planner</button>
       </div>
     </nav>
@@ -44,7 +46,7 @@
         <div class="panel intro-panel">
           <h2>🚀 ronin0s Architecture & Feature Additions</h2>
           <p>
-            <strong>ronin0s</strong> is the digital operating backbone for a commercial mycology operation. This local application combines recipe intelligence, climate telemetry, cultivation forecasting, lineage tracking, and crop imaging into one decision-support dashboard for modern mushroom production.
+            <strong>ronin0s</strong> is the digital operating backbone for a commercial mycology operation. This local application combines recipe intelligence, culture ancestry, cultivation forecasting, lineage tracking, and crop imaging into one decision-support dashboard for modern mushroom production.
           </p>
         </div>
 
@@ -84,9 +86,9 @@
               <span class="feature-icon purple">🌡️</span>
               <span class="tag">Feature #2</span>
             </div>
-            <h3>Spatial Telemetry</h3>
-            <p>Micro-climate simulation across rack levels with relay control logic.</p>
-            <button class="link-button" data-tab="telemetry">View Telemetry →</button>
+            <h3>Genetic Family Tree</h3>
+            <p>Track culture ancestry through transfers, clones, isolates and crosses.</p>
+            <button class="link-button" data-tab="family-tree">Open Family Tree →</button>
           </article>
 
           <article class="feature-card">
@@ -136,8 +138,8 @@ Create a production-ready web app for cultivation planning and monitoring.
 REQUIREMENTS:
 - Use plain HTML, CSS, and JavaScript with no external package dependencies.
 - Save all records locally in browser storage.
-- Add tabbed workflow panels for overview, recipes, calculations, telemetry, vision, genetics, and planning.
-- Include data models for recipe, batch, lineage, scan, and telemetry records.
+- Add tabbed workflow panels for overview, recipes, calculations, family tree, vision, genetics, and planning.
+- Include data models for recipe, batch, lineage, scan, and culture ancestry records.
 - Implement responsive UI and accessible controls.
 - Support offline operation and local-only storage.
 - Define the recipe schema and calculation logic for C:N, hydration, and contamination risk.
@@ -183,24 +185,12 @@ Return a reactive UI with chart-driven visualization and risk messaging.</pre>
           <article class="prompt-card">
             <div class="prompt-head">
               <div>
-                <h3>Prompt #3: Telemetry & Relay Logic</h3>
-                <p>Creates a live climate dashboard with co2 and humidity monitoring logic.</p>
+                <h3>Prompt #3: Culture Family Tree</h3>
+                <p>Documents culture ancestry with editable parent and child relationships.</p>
               </div>
               <button class="copy-button" data-target="prompt-3">Copy Prompt #3</button>
             </div>
-            <pre id="prompt-3">SYSTEM CONTEXT: You are an IoT systems engineer developing climate controls for mushroom fruiting rooms.
-
-TASK:
-Design a telemetry dashboard showing relative humidity and CO2 fluctuation data throughout the day.
-
-SPECIFICATIONS:
-- Accept JSON payloads with temp_c, rh_percent, co2_ppm, and rack_level.
-- Plot dual metrics with separate axes.
-- Highlight stratification between lower and upper rack zones.
-- If floor CO2 exceeds 900 ppm, trigger relay action: { relay: "exhaust_fan", pwm_duty: 85 }.
-
-OUTPUT:
-Deliver a monitoring UI and rule-based relay simulation.</pre>
+            <pre id="prompt-3">Build a locally saved culture family tree. Track names, species, dates, notes and parent IDs. Support sources, transfers, clones, isolates and two-parent crosses. Reject missing parents, circular ancestry and children dated before their parents. Allow searching, editing and expanding branches.</pre>
           </article>
         </div>
       </section>
@@ -269,59 +259,44 @@ Deliver a monitoring UI and rule-based relay simulation.</pre>
         </div>
       </section>
 
-      <section class="tab-panel" id="telemetry">
+      <section class="tab-panel" id="family-tree">
         <div class="panel">
-          <h2>🌡️ Multi-Zone Micro-Climate Mapping & PID Loop Telemetry</h2>
-          <p>Track humidity and CO2 drift across rack levels and simulate automatic exhaust responses.</p>
+          <h2>🧬 Genetic Family Tree</h2>
+          <p>Follow each culture from its source through transfers, clones, isolates and crosses.</p>
+          <p class="family-note">Saved in this browser on this device. Desktop records are separate. Export a copy before clearing browser data.</p>
         </div>
-
-        <div class="two-col-layout telemetry-layout">
-          <div class="panel chart-panel">
-            <div class="panel-header">
-              <h3>Fruiting Chamber A — 24hr Sensor Stream</h3>
-              <div class="scenario-buttons">
-                <button class="scenario-btn active" data-scenario="optimal">Optimal Cycle</button>
-                <button class="scenario-btn" data-scenario="co2-spike">CO2 Exhaust Fail</button>
-                <button class="scenario-btn" data-scenario="rh-drop">RH Humidity Drop</button>
-              </div>
+        <div class="family-layout">
+          <div class="panel">
+            <h3>Your mycelium family tree</h3>
+            <p id="culture-count"></p>
+            <label for="culture-search">Search cultures</label>
+            <input id="culture-search" type="search" placeholder="Name, species or notes">
+            <div class="family-toolbar">
+              <button id="culture-new" class="primary">+ New source</button>
+              <button id="culture-expand">Expand all</button>
+              <button id="culture-collapse">Collapse all</button>
+              <button id="culture-export">Export JSON</button>
             </div>
-            <div class="canvas-wrap large">
-              <canvas id="telemetry-chart" width="680" height="280"></canvas>
-            </div>
-            <div class="metric-row">
-              <div><span>Avg RH%</span><strong id="stat-rh">92.4%</strong></div>
-              <div><span>Avg CO2</span><strong id="stat-co2">650 ppm</strong></div>
-              <div><span>Avg Temp</span><strong id="stat-temp">18.2 °C</strong></div>
-            </div>
+            <div class="family-toolbar"><button id="culture-zoom-out" aria-label="Zoom out">−</button><span id="culture-zoom-label">100%</span><button id="culture-zoom-in" aria-label="Zoom in">+</button><button id="culture-fit">Fit width</button></div><div id="culture-tree" class="culture-tree" tabindex="0" aria-label="Mushroom family tree. Scroll to follow the roots."></div>
+            <p class="family-note">Follow the roots downward from sources to descendants. Click a name to edit it and highlight its ancestry. Crosses join two parent roots. The mushroom represents your collection. Scroll or zoom to explore.</p>
           </div>
-
-          <div class="panel stacked-panel">
-            <h3>Vertical Rack Heatmap</h3>
-            <div class="rack-box top">
-              <div>
-                <strong>Top Rack (Level 3)</strong>
-                <small>High evaporation zone</small>
-              </div>
-              <div class="rack-stats"><span>88% RH</span><span>540 ppm</span></div>
-            </div>
-            <div class="rack-box mid">
-              <div>
-                <strong>Mid Rack (Level 2)</strong>
-                <small>Optimal pinning sweet spot</small>
-              </div>
-              <div class="rack-stats"><span>94% RH</span><span>620 ppm</span></div>
-            </div>
-            <div class="rack-box floor">
-              <div>
-                <strong>Floor Rack (Level 1)</strong>
-                <small>CO2 pooling risk</small>
-              </div>
-              <div class="rack-stats"><span>91% RH</span><span>1,280 ppm</span></div>
-            </div>
+          <div class="panel">
+            <h3 id="culture-editor-title">New culture</h3>
+            <form id="culture-form">
+              <label for="culture-name">Culture name</label><input id="culture-name" required maxlength="120" placeholder="e.g. Oyster master 01">
+              <label for="culture-species">Species / strain</label><input id="culture-species" required maxlength="120" placeholder="e.g. Pleurotus ostreatus">
+              <label for="culture-date">Date</label><input id="culture-date" type="date" required>
+              <label for="culture-method">Relationship</label><select id="culture-method"><option>Source</option><option>Transfer</option><option>Clone</option><option>Isolate</option><option>Cross</option></select>
+              <label for="culture-parent-0">Parent</label><select id="culture-parent-0"></select>
+              <label for="culture-parent-1">Second parent (cross only)</label><select id="culture-parent-1"></select>
+              <label for="culture-notes">Notes</label><textarea id="culture-notes" maxlength="20000" placeholder="Source, identifying traits and observations"></textarea>
+              <div id="culture-ancestry"></div>
+              <div class="family-toolbar"><button type="submit" class="primary">Save culture</button><button type="button" id="culture-add-child" hidden>Add child culture</button></div>
+            </form>
           </div>
         </div>
+        <p id="culture-status" role="status" aria-live="polite"></p>
       </section>
-
       <section class="tab-panel" id="vision">
         <div class="panel">
           <h2>🔍 Edge Vision AI</h2>
@@ -349,32 +324,27 @@ Deliver a monitoring UI and rule-based relay simulation.</pre>
       </section>
 
       <section class="tab-panel" id="genetics">
-        <div class="panel">
-          <h2>🧬 Genetic Senescence Tracking</h2>
-          <p>Monitor strain vitality and passage health to reduce performance drift.</p>
-        </div>
-
-        <div class="two-col-layout genetics-layout">
-          <div class="panel chart-panel">
-            <h3>Lineage Vitality</h3>
-            <div class="canvas-wrap medium">
-              <canvas id="senescence-chart" width="560" height="250"></canvas>
-            </div>
+        <div class="panel"><h2>🧬 Genetics — Culture Observations</h2><p>Record what you observe, then review your culture history. Start with a name, date and notes.</p><p class="family-note">Saved in this browser on this device. Desktop records are separate. Export a copy before clearing browser data.</p></div>
+        <div class="genetics-entry-layout">
+          <div class="panel">
+            <h3 id="genetics-editor-title">New observation</h3>
+            <form id="genetics-form">
+              <label for="genetics-culture">Culture / strain name *</label><input id="genetics-culture" list="genetics-cultures" required maxlength="120" placeholder="e.g. Oyster master 01"><datalist id="genetics-cultures"></datalist>
+              <p class="field-help">Type a name, or choose a culture already in your family tree.</p>
+              <label for="genetics-date">Observation date *</label><input id="genetics-date" type="date" required>
+              <label for="genetics-passage">Transfer number (optional)</label><input id="genetics-passage" type="number" min="0" max="9999" step="1" placeholder="Leave blank if unknown" aria-describedby="passage-help">
+              <p class="field-help" id="passage-help">How many transfers from the original culture? Use 0 for the original, 1 for its first transfer.</p>
+              <label for="genetics-condition">Condition (your assessment)</label><select id="genetics-condition" aria-describedby="condition-help"><option>Not rated</option><option>Strong</option><option>Steady</option><option>Weak</option><option>Needs attention</option></select>
+              <p class="field-help" id="condition-help">Strong = vigorous growth · Steady = no noticeable change · Weak = reduced growth · Needs attention = something to review. Choose Not rated if unsure.</p>
+              <label for="genetics-notes">Observation notes *</label><textarea id="genetics-notes" required maxlength="20000" placeholder="Describe appearance, growth or changes you noticed."></textarea>
+              <p class="field-help">These are your observations, not an automatic diagnosis. Fields marked * are required.</p>
+              <p id="genetics-status" role="status" aria-live="polite"></p>
+              <div class="family-toolbar"><button id="genetics-save" class="primary" type="submit">Save observation</button><button id="genetics-cancel" type="button" hidden>Cancel editing</button></div>
+            </form>
           </div>
-          <div class="panel lineage-panel">
-            <h3>Parent → Child Lineage Map</h3>
-            <div class="lineage-tree">
-              <div class="node root">A1<br /><small>Original</small></div>
-              <div class="branch"></div>
-              <div class="node child">A2<br /><small>Passage 3</small></div>
-              <div class="branch"></div>
-              <div class="node child">A3<br /><small>Passage 5</small></div>
-            </div>
-            <div class="genetics-alert">Senescence trend is increasing after Passage 5. Schedule a fresh tissue transfer.</div>
-          </div>
+          <div class="panel"><h3>Observation history</h3><p id="genetics-count"></p><label for="genetics-search">Search culture, condition or notes</label><input id="genetics-search" type="search" placeholder="Find a saved observation"><button id="genetics-export">Export observations</button><div id="genetics-history"></div></div>
         </div>
       </section>
-
       <section class="tab-panel" id="planner">
         <div class="panel">
           <h2>⚙️ Commercial Production Batch Planner</h2>
@@ -412,5 +382,9 @@ Deliver a monitoring UI and rule-based relay simulation.</pre>
     </footer>
 
     <script src="app.js"></script>
+    <script src="family-tree-model.js"></script>
+    <script src="mycelium-view.js"></script>
+    <script src="family-tree.js"></script>
+    <script src="genetics.js"></script>
   </body>
 </html>

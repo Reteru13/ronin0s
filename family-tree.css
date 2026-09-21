@@ -1,0 +1,29 @@
+.family-layout { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(300px, 1fr); gap: 22px; align-items: start; }
+.family-toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+#family-tree button { padding: 10px 14px; border: 1px solid #d6d3d1; border-radius: 8px; background: white; color: var(--ink); }
+#family-tree button:hover, #family-tree button:focus-visible { background: var(--emerald-soft); border-color: var(--emerald); }
+#family-tree .primary { background: var(--emerald); color: white; border-color: var(--emerald); }
+#family-tree label { display: block; font-size: 14px; font-weight: bold; margin-top: 16px; }
+#family-tree input, #family-tree select, #family-tree textarea { width: 100%; margin-top: 7px; padding: 11px; border: 1px solid #a8a29e; border-radius: 8px; background: white; color: var(--ink); font: inherit; }
+#family-tree textarea { min-height: 110px; resize: vertical; }
+.family-note, #culture-count { color: var(--muted); font-size: 13px; line-height: 1.6; }
+#culture-status { position: sticky; bottom: 8px; background: #effaf0; color: #166534; padding: 12px; border-radius: 8px; }
+#culture-status:empty { display: none; }
+#culture-status.error { background: #fff1f2; color: #9f1239; }
+.ancestor-link { margin: 4px; }
+.culture-tree { height: 620px; overflow: auto; border-radius: 18px; background: radial-gradient(ellipse at 50% 10%, #244734, #10291f 60%, #0c2019); border: 1px solid #355745; scrollbar-color: #648a70 #10291f; }
+.mycelium-canvas { position: relative; transform-origin: top left; }
+.mycelium-canvas svg { position: absolute; inset: 0; pointer-events: none; }
+#family-tree .root-name { position: absolute; width: 180px; height: 66px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px; padding: 8px 12px; border-radius: 22px 10px 22px 10px; border: 1px solid #719780; background: #173b2c; color: #f1f2dc; text-align: center; }
+.root-name strong { max-width: 100%; font-size: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.root-name span { font-size: 13px; color: #b9cdb7; }
+#family-tree .root-name.ancestor { border-color: #bbeeb5; }
+#family-tree .root-name.selected { background: #d6ecc3; color: #172d20; border: 2px solid #f2f5cd; box-shadow: 0 0 22px #b4efb62a; }
+#family-tree .root-name.selected span { color: #315039; }
+#family-tree .root-name:hover, #family-tree .root-name:focus-visible { background: #396148; color: #fff; outline: 2px solid #d6ecc3; }
+#family-tree .root-toggle { position: absolute; width: 26px; height: 26px; padding: 0; border-radius: 50%; background: #d6ecc3; color: #172d20; border: 1px solid #719780; }
+#family-tree .root-add { position: absolute; width: 104px; height: 30px; padding: 3px; background: #183e2b; color: #d6ecc3; border: 1px dashed #719780; border-radius: 16px; font-size: 13px; }
+#culture-zoom-label { align-self: center; min-width: 50px; text-align: center; }
+.mycelium-canvas .tree-empty { color: #cfdec6; text-align: center; padding: 20px; }
+.tree-empty { color: var(--muted); line-height: 1.7; padding: 30px; }
+@media (max-width: 800px) { .family-layout { grid-template-columns: minmax(0, 1fr); } }

@@ -225,127 +225,6 @@ function buildCnChart() {
   updateCnCalculator();
 }
 
-const telemetryScenarios = {
-  optimal: {
-    rh: [94, 93, 95, 92, 91, 93, 94, 92],
-    co2: [620, 640, 610, 680, 710, 650, 630, 620],
-    temp: [18.5, 18.3, 18.2, 18.1, 18.4, 18.6, 18.8, 18.4],
-    statRh: '92.4%',
-    statCo2: '650 ppm',
-    statTemp: '18.2 °C'
-  },
-  'co2-spike': {
-    rh: [92, 91, 90, 89, 88, 90, 89, 88],
-    co2: [650, 820, 1150, 1580, 1820, 1600, 1300, 950],
-    temp: [18.8, 19.0, 19.5, 20.1, 20.4, 20.2, 19.8, 19.4],
-    statRh: '89.7%',
-    statCo2: '1,280 ppm 🚨',
-    statTemp: '19.6 °C'
-  },
-  'rh-drop': {
-    rh: [90, 82, 71, 64, 60, 68, 75, 82],
-    co2: [600, 610, 620, 630, 610, 600, 610, 620],
-    temp: [17.8, 17.6, 17.9, 18.0, 18.2, 18.1, 18.3, 18.5],
-    statRh: '74.8%',
-    statCo2: '612 ppm',
-    statTemp: '18.1 °C'
-  }
-};
-
-function applyTelemetryScenario(name) {
-  const scenario = telemetryScenarios[name];
-  if (!scenario || !window.telemetryChart) return;
-  window.telemetryChart.data.datasets[0].data = scenario.rh;
-  window.telemetryChart.data.datasets[1].data = scenario.co2;
-  window.telemetryChart.update();
-  document.getElementById('stat-rh').textContent = scenario.statRh;
-  document.getElementById('stat-co2').textContent = scenario.statCo2;
-  document.getElementById('stat-temp').textContent = scenario.statTemp;
-}
-
-document.querySelectorAll('.scenario-btn').forEach((button) => {
-  button.addEventListener('click', () => {
-    document.querySelectorAll('.scenario-btn').forEach((btn) => btn.classList.toggle('active', btn === button));
-    applyTelemetryScenario(button.dataset.scenario);
-  });
-});
-
-function drawLineChart(canvas, labels, series1, series2) {
-  const ctx = canvas.getContext('2d');
-  const w = canvas.width;
-  const h = canvas.height;
-  const pad = { top: 16, right: 36, bottom: 40, left: 40 };
-  const plotW = w - pad.left - pad.right;
-  const plotH = h - pad.top - pad.bottom;
-
-  ctx.clearRect(0, 0, w, h);
-  ctx.strokeStyle = '#d6d3d1';
-  ctx.lineWidth = 1;
-  for (let i = 0; i <= 4; i++) {
-    const y = pad.top + (plotH / 4) * i;
-    ctx.beginPath();
-    ctx.moveTo(pad.left, y);
-    ctx.lineTo(w - pad.right, y);
-    ctx.stroke();
-  }
-
-  const maxY = 2000;
-  const minY = 60;
-  function mapValue(value, axis) {
-    const range = maxY - minY;
-    const v = (value - minY) / range;
-    return pad.top + plotH - v * plotH + (axis === 'co2' ? 0 : 0);
-  }
-
-  const drawSeries = (values, color, offset = 0) => {
-    ctx.beginPath();
-    values.forEach((value, index) => {
-      const x = pad.left + (plotW / (values.length - 1)) * index;
-      const y = pad.top + plotH - ((value - minY) / (maxY - minY)) * plotH;
-      if (index === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
-    });
-    ctx.strokeStyle = color;
-    ctx.lineWidth = offset === 0 ? 2 : 2.2;
-    ctx.setLineDash(offset === 0 ? [] : [6, 6]);
-    ctx.stroke();
-    ctx.setLineDash([]);
-  };
-
-  drawSeries(series1, '#15803d', 0);
-  drawSeries(series2, '#d97706', 1);
-
-  ctx.fillStyle = '#292524';
-  ctx.font = '12px Arial';
-  labels.forEach((label, index) => {
-    const x = pad.left + (plotW / (labels.length - 1)) * index;
-    ctx.fillText(label, x - 14, h - 12);
-  });
-
-  ctx.fillText('RH %', 10, 18);
-  ctx.fillText('CO2 ppm', w - 72, 18);
-}
-
-function buildTelemetryChart() {
-  const canvas = document.getElementById('telemetry-chart');
-  if (!canvas) return;
-  const labels = ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00', '18:00', '21:00'];
-  const scenario = telemetryScenarios.optimal;
-  drawLineChart(canvas, labels, scenario.rh, scenario.co2);
-  window.telemetryChart = {
-    data: { datasets: [{ data: scenario.rh }, { data: scenario.co2 }] },
-    update: () => {
-      const active = document.querySelector('.scenario-btn.active');
-      const name = active ? active.dataset.scenario : 'optimal';
-      const current = telemetryScenarios[name] || telemetryScenarios.optimal;
-      drawLineChart(canvas, labels, current.rh, current.co2);
-      window.telemetryChart.data.datasets[0].data = current.rh;
-      window.telemetryChart.data.datasets[1].data = current.co2;
-    }
-  };
-  applyTelemetryScenario('optimal');
-}
-
 function drawVisionCanvas() {
   const canvas = document.getElementById('vision-canvas');
   if (!canvas) return;
@@ -372,59 +251,6 @@ function drawVisionCanvas() {
   ctx.fillText('Patch cluster', 245, 260);
 }
 
-function drawLineSeries(canvas, points, color, fill = false) {
-  const ctx = canvas.getContext('2d');
-  const w = canvas.width;
-  const h = canvas.height;
-  const pad = { top: 20, right: 20, bottom: 32, left: 38 };
-  const plotW = w - pad.left - pad.right;
-  const plotH = h - pad.top - pad.bottom;
-
-  ctx.clearRect(0, 0, w, h);
-  ctx.strokeStyle = '#e7e5e4';
-  ctx.beginPath();
-  for (let i = 0; i <= 4; i++) {
-    const y = pad.top + (plotH / 4) * i;
-    ctx.moveTo(pad.left, y);
-    ctx.lineTo(w - pad.right, y);
-  }
-  ctx.stroke();
-
-  ctx.beginPath();
-  points.forEach((value, index) => {
-    const x = pad.left + (plotW / (points.length - 1)) * index;
-    const y = pad.top + plotH - ((value - 50) / 50) * plotH;
-    if (index === 0) ctx.moveTo(x, y);
-    else ctx.lineTo(x, y);
-  });
-  ctx.strokeStyle = color;
-  ctx.lineWidth = 2;
-  ctx.stroke();
-
-  if (fill) {
-    const lastX = pad.left + (plotW / (points.length - 1)) * (points.length - 1);
-    const lastY = pad.top + plotH - ((points[points.length - 1] - 50) / 50) * plotH;
-    ctx.lineTo(lastX, h - pad.bottom);
-    ctx.lineTo(pad.left, h - pad.bottom);
-    ctx.closePath();
-    ctx.fillStyle = color + '44';
-    ctx.fill();
-  }
-
-  ctx.fillStyle = '#292524';
-  ctx.font = '12px Arial';
-  ['P1', 'P2', 'P3', 'P4', 'P5', 'P6'].forEach((label, index) => {
-    const x = pad.left + (plotW / 5) * index;
-    ctx.fillText(label, x - 8, h - 10);
-  });
-}
-
-function buildSenescenceChart() {
-  const canvas = document.getElementById('senescence-chart');
-  if (!canvas) return;
-  drawLineSeries(canvas, [96, 93, 89, 84, 76, 68], '#166534', true);
-}
-
 function recalcPlanner() {
   const targetYield = Number(document.getElementById('yield-kg').value || 0);
   const bePercent = Number(document.getElementById('be-percent').value || 0);
@@ -448,7 +274,7 @@ document.getElementById('recalc-planner').addEventListener('click', recalcPlanne
 
 renderRecipes();
 buildCnChart();
-buildTelemetryChart();
+
 drawVisionCanvas();
-buildSenescenceChart();
+
 recalcPlanner();
