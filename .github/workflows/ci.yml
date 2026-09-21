@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  browser:
+    name: Browser tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: node --test family-tree.test.cjs family-tree-ui.test.cjs
+
+  desktop:
+    name: Desktop checks
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+      - name: Restore checks
+        run: dotnet restore RoninJournal/Checks/Checks.csproj --configfile RoninJournal/NuGet.Config
+      - name: Run core checks
+        run: dotnet run --project RoninJournal/Checks/Checks.csproj --no-restore
+      - name: Restore UI checks
+        run: dotnet restore RoninJournal/UiChecks/UiChecks.csproj --configfile RoninJournal/NuGet.Config
+      - name: Build desktop app
+        run: dotnet build RoninJournal/App/App.csproj --configuration Release --no-restore
+      - name: Run UI checks
+        run: dotnet run --project RoninJournal/UiChecks/UiChecks.csproj --no-restore -- RoninJournal/qa

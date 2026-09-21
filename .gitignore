@@ -1,0 +1,10 @@
+release/
+ronin0s-demo/
+C O D E X (D) - Shortcut.lnk
+RoninJournal/qa/
+RoninJournal/ui-checks-output/
+RoninJournal/Data/
+**/bin/
+**/obj/
+**/.dotnet/
+*.zip

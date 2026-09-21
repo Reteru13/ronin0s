@@ -10,6 +10,10 @@ Download the ZIP, extract it to a writable folder, and run `RoninJournal.exe`.
 Ronin0s stores records locally on the computer and does not require an account or
 cloud service.
 
+The Windows package requires Windows 10/11 and the **.NET 10 Desktop Runtime**.
+Install the runtime from [Microsoft's .NET download page](https://dotnet.microsoft.com/download/dotnet/10.0)
+before launching the app if it is not already installed.
+
 > The Windows download is published from the repository's **Releases** page.
 > If you are viewing the source only, choose **Releases** in the right-hand
 > sidebar and open the latest release.
@@ -44,3 +48,8 @@ profile, application data folder, and backup files.
 
 See [`SECURITY.md`](./SECURITY.md) for security limitations and vulnerability
 reporting.
+
+## Development
+
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for build, test, and contribution
+instructions. Release history is documented in [`CHANGELOG.md`](./CHANGELOG.md).
